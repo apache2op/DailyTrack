@@ -1,4 +1,4 @@
-# 🚀 Daily Track
+#  📈 Daily Track
 
 A simple, minimal, and responsive **habit tracking web app** to help you stay consistent and visualize your daily progress.
 
