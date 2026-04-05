@@ -3,7 +3,7 @@
   "short_name": "DailyTrack",
   "start_url": "/DailyTrack/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#fe7f20",
   "theme_color": "#111111",
   "icons": [
     {
