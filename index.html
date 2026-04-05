@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+
+
+<div class="container">
+
+  <h1>Hello User</h1>
+  <h3>Welcome to Daily Track</h3>
+
+  <div class="controls">
+
+    <!-- ROW 1 -->
+    <div class="controls-top">
+
+      <select id="monthSelect"></select>
+
+      <input type="text" id="habitName" placeholder="Habit name">
+
+      <div class="color-picker">
+        <input type="color" id="habitColor">
+        <div id="colorCircle"></div>
+      </div>
+
+      <button id="addBtn">Add</button>
+
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="controls-bottom">
+      <button onclick="downloadCSV()">Export</button>
+      <button onclick="toggleTheme()">🌙</button>
+    </div>
+
+  </div>
+
+  <div id="tracker"></div>
+
+  <div id="habitList" class="habit-row"></div>
+
+</div>
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

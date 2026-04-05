@@ -1,0 +1,277 @@
+/* BASE */
+
+*{
+font-family: "Verdana", "Helvetica", "Arial", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f5f7;
+  color: #111;
+  transition: 0.3s;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+.dark {
+  background: #000;
+  color: #fff;
+}
+
+.container {
+  padding: 15px;
+  text-align: center;
+}
+
+/* GLOBAL DARK TEXT */
+.dark * {
+  color: #fff;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.controls-top,
+.controls-bottom {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* INPUT + BUTTON */
+input, button, select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #111;
+}
+
+/* DARK MODE INPUT */
+.dark input,
+.dark select {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.dark input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+/* DARK MODE BUTTON */
+.dark button {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* COLOR PICKER */
+.color-picker {
+  position: relative;
+}
+
+#habitColor {
+  opacity: 0;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+#colorCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+/* GRID */
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+/* BOX */
+.day-box {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dark .day-box {
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.day-box.active {
+  transform: scale(1.05);
+}
+
+.day-box:active {
+  transform: scale(0.9);
+}
+
+/* DATE */
+.day-number {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+/* TITLE */
+.habit-title {
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+/* CARDS */
+.habit-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.habit-card {
+  min-width: 150px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.dark .habit-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.habit-card strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.progress-text {
+  font-size: 12px;
+  margin-bottom: 5px;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+.progress-bar {
+  margin-top: 4px;
+}
+
+
+.delete-x {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  height: 5px;
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+#colorCircle {
+  transition: 0.2s ease;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  body {
+    overflow-x: hidden; /* ✅ prevents scroll */
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  /* ROW 1 */
+  .controls-top {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+  }
+
+  /* Month dropdown smaller */
+  #monthSelect {
+    width: 55px; /* ✅ fits 3 letters */
+    font-size: 12px;
+    padding: 6px 4px;
+  }
+
+  /* Input smaller */
+  #habitName {
+    flex: 1;
+    min-width: 80px; /* ✅ prevents overflow */
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  /* Color circle tighter */
+  .color-picker {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #colorCircle {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Add button compact */
+  .controls-top button {
+    width: 50px;
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  /* ROW 2 */
+  .controls-bottom {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .controls-bottom button {
+    flex: 1;
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
