@@ -210,24 +210,32 @@ function render() {
 
       box.addEventListener("mouseleave", hideTooltip);
 
-      let pressTimer;
+      let pressTimer; // keep global in script.js
 
-      box.addEventListener("touchstart", (e) => {
-        pressTimer = setTimeout(() => {
-          const touch = e.touches[0];
-          showTooltip(touch.clientX, touch.clientY);
-        }, 500);
-      });
+box.addEventListener("touchstart", (e) => {
+  clearTimeout(pressTimer);
+  pressTimer = setTimeout(() => {
+    const touch = e.touches[0];
+    showTooltip(touch.clientX, touch.clientY);
+  }, 500); // long press
+});
 
-      box.addEventListener("touchend", () => {
-        clearTimeout(pressTimer);
-        hideTooltip();
-      });
+box.addEventListener("touchend", () => {
+  clearTimeout(pressTimer); 
+  // DO NOT hide tooltip here — let it stay until tapping outside
+});
 
-      box.addEventListener("touchmove", () => {
-        clearTimeout(pressTimer);
-        hideTooltip();
-      });
+box.addEventListener("touchmove", () => {
+  clearTimeout(pressTimer); 
+  hideTooltip(); // hide if user scrolls/moves finger
+});
+
+// ✅ Hide tooltip when tapping anywhere outside a day box
+document.addEventListener("touchstart", (e) => {
+  if (!e.target.classList.contains("day-box")) {
+    hideTooltip();
+  }
+});
 
       box.onclick = () => toggleDay(hIndex, i);
 
