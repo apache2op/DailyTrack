@@ -145,8 +145,11 @@ const nameSpan = document.createElement("span");
 nameSpan.innerText = habit.name;
 nameSpan.style.cursor = "pointer"; // optional: show clickable
 
-// Only clicking on the habit name triggers the detail page
-nameSpan.onclick = () => openHabitDetail(hIndex);
+// Use pointerup for mobile & desktop
+nameSpan.addEventListener("pointerup", (e) => {
+  e.stopPropagation(); // prevent triggering parent box or grid events
+  openHabitDetail(hIndex);
+});
 
 title.appendChild(nameSpan);
 
