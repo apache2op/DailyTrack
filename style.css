@@ -274,6 +274,7 @@ input, button, select {
     display: flex;
     gap: 5px;
     width: 100%;
+    margin-bottom: 20px;
   }
 
   .controls-bottom button {
