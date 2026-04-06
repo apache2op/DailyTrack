@@ -139,9 +139,16 @@ function render() {
     const logs = habit.logs[key];
 
     const title = document.createElement("div");
-    title.className = "habit-title";
-    title.innerText = habit.name;
-    title.onclick = () => openHabitDetail(hIndex);
+title.className = "habit-title";
+
+const nameSpan = document.createElement("span");
+nameSpan.innerText = habit.name;
+nameSpan.style.cursor = "pointer"; // optional: show clickable
+
+// Only clicking on the habit name triggers the detail page
+nameSpan.onclick = () => openHabitDetail(hIndex);
+
+title.appendChild(nameSpan);
 
     const grid = document.createElement("div");
     grid.className = "habit-grid";
