@@ -230,9 +230,17 @@ input, button, select {
   /* Month dropdown smaller */
   #monthSelect {
     width: 55px; /* ✅ fits 3 letters */
-    font-size: 12px;
+    font-size: 13px;
     padding: 6px 4px;
   }
+
+  #yearSelect {
+    width: 70px; /* ✅ fits 4 digits */
+    font-size: 13px;
+    padding: 6px 4px;
+  }
+
+  
 
   /* Input smaller */
   #habitName {
@@ -273,5 +281,182 @@ input, button, select {
     padding: 6px;
     font-size: 12px;
   }
+}
+
+
+
+/* 🔥 DETAIL VIEW */
+/* 🔥 MATCH GRID WIDTH EXACTLY */
+#detailView {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* 🔥 TEXTAREA FULL WIDTH */
+#detailView textarea {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Each block */
+.day-log {
+  margin-bottom: 20px;
+}
+
+/* Header row (Day + Name) */
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* Left: Day number */
+.day-label {
+  font-weight: bold;
+}
+
+/* Right: Day name */
+.day-name {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* Textarea */
+.day-textarea {
+  width: 100%;
+  max-width: 100%;              /* 🔥 ADDED */
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  min-height: 50px;
+  max-height: 220px;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+/* Counter */
+.char-counter {
+  text-align: right;
+  margin-top: 4px;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+/* 🔥 MOBILE FIX (no horizontal scroll) */
+@media (max-width: 600px) {
+  #detailView {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; /* 🔥 IMPORTANT FIX */
+  }
+
+
+  .day-textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  #detailView {
+    padding: 10px;
+  }
+}
+
+/* DARK MODE */
+.dark .day-textarea {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* 🔥 NOTE DOT (cleaned — removed forced color) */
+.note-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0.9;
+  background: #111; /* 🔥 THIS WAS MISSING */
+}
+
+/* 🔥 DAY NAME SAME STYLE */
+.day-name {
+  font-weight: bold;
+  color: inherit;
+  font-size: 13px;
+}
+
+.note-dot {
+  transition: 0.2s ease;
+}
+
+.day-box:hover .note-dot {
+  transform: scale(1.2);
+}
+
+/* 🔥 DAY NAME IN GRID */
+.day-name-grid {
+  position: absolute;
+  bottom: 3px;
+  left: 5px;
+  font-size: 9px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.empty-box {
+  margin-top: 100px; /* increase this if you want more space */
+  text-align: center;
+  opacity: 0.8;
+  color: rgb(116, 113, 113);
+}
+
+@media (max-width: 768px) {
+
+  .controls-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .controls-bottom {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+  }
+
+  /* Make ALL buttons same row */
+  #addBtn,
+  .controls-bottom button {
+    flex: 1;
+  }
+}
+
+#noteTooltip {
+  position: fixed;
+  max-width: 200px;
+  padding: 8px 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: 0.2s ease;
+  z-index: 9999;
+}
+
+.dark #noteTooltip {
+  background: #fff;
+  color: #111;
 }
 
